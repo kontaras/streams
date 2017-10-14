@@ -1,4 +1,7 @@
 import itertools
+import sys
+
+py_major, py_minor, py_release, py_level, py_serial = sys.version_info
 
 class Stream(object):
     '''
@@ -56,8 +59,11 @@ class Stream(object):
             :param other: One or more Iterator objects to zip with
             :type other: Iterator
         """
-        #should be itertools.izip in 2.X
-        return wrap(zip(self._itr, *other))
+        #should be  in 2.X
+        if py_major < 3:
+            return wrap(itertools.izip(self._itr, *other))
+        else:
+            return wrap(zip(self._itr, *other))
 
 def wrap(itr):
     return Stream(itr)
