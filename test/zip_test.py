@@ -14,11 +14,18 @@ def test_basic():
     result = [(0,'0'), (1,'1'),(2,'2')]
     utils.checkFinite(result, stream1.zip(stream2))
     
-def test_size_mismatch():
+def test_multi():
     stream1 = streams.wrap(iter([0,1,2]))
     stream2 = ['0','1','2']
+    stream3 = ["x", "y", "z"]
+    result = [(0,'0', "x"), (1,'1', "y"),(2,'2', "z")]
+    utils.checkFinite(result, stream1.zip(stream2, stream3))
+    
+def test_size_mismatch():
+    stream1 = streams.wrap([0,1,2, 3, 4])
+    stream2 = ['0','1','2']
     result = [(0,'0'), (1,'1'),(2,'2')]
-    utils.checkFinite(result[:2], stream1.zip(stream2[:2]))
+    utils.checkFinite(result, stream1.zip(stream2))
     
     stream1 = streams.wrap(iter([0,1,2]))
     utils.checkFinite(result, stream1.zip(stream2 + [4]))
