@@ -20,6 +20,9 @@ class Stream(object):
     
     def __next__(self):
         return next(self._itr)
+       
+    def next(self):
+        return self.__next__()
     
     def map(self, func):
         """
@@ -34,13 +37,19 @@ class Stream(object):
             :return: A stream of wrapped values
             :rtype: :class:`Stream`
         """
-        return wrap(map(func, self._itr))
+        if py_major < 3:
+            return wrap(itertools.imap(func, self._itr))
+        else:
+            return wrap(map(func, self._itr))
     
     def limit(self, length):
         return wrap(itertools.islice(self._itr, length))
     
     def filter(self, func):
-        return wrap(filter(func, self._itr))
+        if py_major < 3:
+            return wrap(itertools.ifilter(func, self._itr))
+        else:
+            return wrap(filter(func, self._itr))
     
     def flatten(self):
         return wrap(itertools.chain.from_iterable(self._itr))
