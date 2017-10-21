@@ -1,7 +1,7 @@
 import itertools
 import sys
 
-py_major, py_minor, py_release, py_level, py_serial = sys.version_info
+_py_major, _py_minor, _py_release, _py_level, _py_serial = sys.version_info
 
 class Stream(object):
     '''
@@ -22,6 +22,7 @@ class Stream(object):
         return next(self._itr)
        
     def next(self):
+        #Python 2
         return self.__next__()
     
     def map(self, func):
@@ -37,7 +38,7 @@ class Stream(object):
             :return: A stream of wrapped values
             :rtype: :class:`Stream`
         """
-        if py_major < 3:
+        if _py_major < 3:
             return wrap(itertools.imap(func, self._itr))
         else:
             return wrap(map(func, self._itr))
@@ -46,7 +47,7 @@ class Stream(object):
         return wrap(itertools.islice(self._itr, length))
     
     def filter(self, func):
-        if py_major < 3:
+        if _py_major < 3:
             return wrap(itertools.ifilter(func, self._itr))
         else:
             return wrap(filter(func, self._itr))
@@ -87,7 +88,7 @@ class Stream(object):
             :rtype: :class:`Stream` of tuples
         """
         # should be  in 2.X
-        if py_major < 3:
+        if _py_major < 3:
             return wrap(itertools.izip(self._itr, *other))
         else:
             return wrap(zip(self._itr, *other))

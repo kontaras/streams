@@ -17,7 +17,15 @@ def test_basic():
 def test_infinite():
     stream = streams.wrap(itertools.count())
     
-    utils.testInfinite(itertools.count(1,2), stream.filter(lambda x: x % 2 == 1))
+    if streams._py_major == 2 and streams._py_minor < 7:
+        def count(start, step):
+            while True:
+                yield start
+                start += step
+    else:
+        count = itertools.count
+
+    utils.testInfinite(count(1,2), stream.filter(lambda x: x % 2 == 1))
 
 def test_empty():
     stream = streams.wrap(iter([]))
