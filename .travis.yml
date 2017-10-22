@@ -28,8 +28,8 @@ install:
   - pip install pep8
 
 script:
-  python setup.py test
-  pep8 streams #test
+  - python setup.py test
+  - pep8 streams #test
   
 after_success:
   codecov
