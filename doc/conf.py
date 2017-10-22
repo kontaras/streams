@@ -19,7 +19,7 @@
 #
 import os
 import sys
-sys.path.insert(0, '/Users/knaryshkin/Documents/workspace/python/streams/streams')
+sys.path.insert(0, '../streams/streams')
 
 
 # -- General configuration ------------------------------------------------

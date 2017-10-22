@@ -28,7 +28,7 @@ install:
   - pip install pep8
 
 script:
-  - python setup.py test
+  - python setup.py test build_sphinx
   - pep8 streams #test
   
 after_success:
