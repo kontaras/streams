@@ -19,7 +19,7 @@
 #
 import os
 import sys
-sys.path.insert(0, '../streams/streams')
+sys.path.insert(0, os.path.abspath('../streams'))
 
 
 # -- General configuration ------------------------------------------------
