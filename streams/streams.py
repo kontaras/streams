@@ -82,7 +82,7 @@ class Stream(object):
               wrap(['a', 'b', 'c']).zip([1,2,3]) #[('a', 1),('b', 2),('c', 3)]
 
             .. warning:: This method is a bit eager. It prematurely consumes
-            some of the elements from the iterator
+                some of the elements from the iterator
 
             :param other: One or more Iterator objects to zip with
             :type other: Iterator
