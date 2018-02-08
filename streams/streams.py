@@ -46,13 +46,13 @@ class Stream(object):
 
     def limit(self, length):
         """
-            Create a new :class:`Stream` that contains the first `length` elements
-            from this one. If this steam has fewer elements than that, the
-            stream will just be all of the elements.
+            Create a new :class:`Stream` that contains the first `length`
+            elements from this one. If this steam has fewer elements than
+            that, the stream will just be all of the elements.
             ::
-            
+
                 wrap([1, 2, 3, 4, 5]).limit(3) #[1, 2, 3]
-                
+
             :param length: The number of elements to limit the stream to
             :type length: int
             :return: A stream of limited length
@@ -62,15 +62,16 @@ class Stream(object):
 
     def filter(self, func):
         """
-            Create a new :class:`Stream` that contains every element from this stream
-            for which a given function returns True.
+            Create a new :class:`Stream` that contains every element from this
+            stream for which a given function returns `True`.
             ::
-            
+
                 wrap([1.0, 1.5, 7.0, 0.3]).filter(float.is_integer) #[1.0, 7.0]
-                
+
             :param func: The function to test elements with
             :type func: callable
-            :return: A stream containing all of the values for which the function is True
+            :return: A stream containing all of the values for which the
+                function is `True`
             :rtype: :class:`Stream`
         """
         if _py_major < 3:
