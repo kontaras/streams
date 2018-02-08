@@ -12,6 +12,8 @@ def test_basic():
     stream = streams.wrap(iter(l))
     utils.checkFinite(l[:4], stream.limit(4))
     
+def test_high_limit():
+    l = [1, 2, 3, 4, 5]
     stream = streams.wrap(iter(l))
     utils.checkFinite(l, stream.limit(6))
 

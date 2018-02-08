@@ -36,7 +36,7 @@ class Stream(object):
 
             :param func: The function to run
             :type func: callable
-            :return: A stream of wrapped values
+            :return: A stream containing the return values
             :rtype: :class:`Stream`
         """
         if _py_major < 3:
@@ -45,6 +45,19 @@ class Stream(object):
             return wrap(map(func, self._itr))
 
     def limit(self, length):
+        """
+            Create a new :class:`Stream` that contains the first `length` elements
+            from this one. If this steam has fewer elements than that, the
+            stream will just be all of the elements.
+            ::
+            
+                wrap([1, 2, 3, 4, 5]).limit(3) #[1, 2, 3]
+                
+            :param length: The number of elements to limit the stream to
+            :type length: int
+            :return: A stream of limited length
+            :rtype: :class:`Stream`
+        """
         return wrap(itertools.islice(self._itr, length))
 
     def filter(self, func):
