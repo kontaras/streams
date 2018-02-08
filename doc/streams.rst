@@ -8,4 +8,4 @@ streams package
 
 .. autoclass:: Stream()
 	:members:
-	:undoc-members:
+	:no-undoc-members:

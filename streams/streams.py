@@ -7,7 +7,7 @@ _py_major, _py_minor, _py_release, _py_level, _py_serial = sys.version_info
 class Stream(object):
     '''
     classdocs
-    TODO
+    **TODO**
     '''
 
     def __init__(self, itr):
@@ -61,17 +61,23 @@ class Stream(object):
         return wrap(itertools.islice(self._itr, length))
 
     def filter(self, func):
+        """
+            **TODO**
+        """
         if _py_major < 3:
             return wrap(itertools.ifilter(func, self._itr))
         else:
             return wrap(filter(func, self._itr))
 
     def flatten(self):
+        """
+            **TODO**
+        """
         return wrap(itertools.chain.from_iterable(self._itr))
 
     def paginate(self, pageSize):
         """
-            TODO
+            **TODO**
         """
         # Based on https://stackoverflow.com/a/46107096/686041
         def pager():
@@ -110,4 +116,7 @@ class Stream(object):
 
 
 def wrap(itr):
+    """
+        **TODO**
+    """
     return Stream(itr)
