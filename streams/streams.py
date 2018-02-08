@@ -62,7 +62,16 @@ class Stream(object):
 
     def filter(self, func):
         """
-            **TODO**
+            Create a new :class:`Stream` that contains every element from this stream
+            for which a given function returns True.
+            ::
+            
+                wrap([1.0, 1.5, 7.0, 0.3]).filter(float.is_integer) #[1.0, 7.0]
+                
+            :param func: The function to test elements with
+            :type func: callable
+            :return: A stream containing all of the values for which the function is True
+            :rtype: :class:`Stream`
         """
         if _py_major < 3:
             return wrap(itertools.ifilter(func, self._itr))
