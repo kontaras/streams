@@ -30,7 +30,7 @@ install:
 
 script:
   - python setup.py test build_sphinx
-  - pep8 streams #test
+  - pep8 streams test
   
 after_success:
   codecov
