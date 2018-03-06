@@ -30,7 +30,6 @@ def testEmpty(stream):
 
     try:
         foo = next(stream)
-        print(foo)
         assert False, "Expected stream to throw StopIteration. It did not."
     except StopIteration:
         pass  # Expected error

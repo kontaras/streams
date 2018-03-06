@@ -23,7 +23,6 @@ def test_simple():
         for v in l:
             assert v == values + (2 * layers)
             values += 1
-        print("vals", values)
         assert values == 2 - layers
         layers += 1
     assert layers == 2
