@@ -104,7 +104,7 @@ class Stream(object):
 
     def zip(self, *other):
         """
-            Combine this stream with another Iterator so that it produces a new
+            Combine this stream with another iterable so that it produces a new
             stream of tuples with a value from each stream, in order.
             ::
 
@@ -114,7 +114,7 @@ class Stream(object):
                 some of the elements from the iterator
 
             :param other: One or more Iterator objects to zip with
-            :type other: Iterator
+            :type other: iterable
             :return: The combined stream
             :rtype: :class:`Stream` of tuples
         """
@@ -127,6 +127,11 @@ class Stream(object):
 
 def wrap(itr):
     """
-        **TODO**
+        Wraps an iterable into a Stream.
+
+        :param itr: The iterable to wrap
+        :type itr: iterable
+        :return: a wrapped iterable
+        :rtype: :class:`Stream`
     """
     return Stream(itr)
