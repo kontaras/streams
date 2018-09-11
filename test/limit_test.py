@@ -10,13 +10,13 @@ import utils
 
 def test_basic():
     sample_list = [1, 2, 3, 4, 5]
-    stream = streams.wrap(iter(l))
+    stream = streams.wrap(iter(sample_list))
     utils.checkFinite(sample_list[:4], stream.limit(4))
 
 
 def test_high_limit():
     sample_list = [1, 2, 3, 4, 5]
-    stream = streams.wrap(iter(l))
+    stream = streams.wrap(iter(sample_list))
     utils.checkFinite(sample_list, stream.limit(6))
 
 
