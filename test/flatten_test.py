@@ -9,8 +9,8 @@ import utils
 
 
 def test_basic():
-    l = [[1, 2], [3]]
-    stream = streams.wrap(iter(l))
+    sample_list = [[1, 2], [3]]
+    stream = streams.wrap(iter(sample_list))
 
     utils.checkFinite([1, 2, 3], stream.flatten())
 
