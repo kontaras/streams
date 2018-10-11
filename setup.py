@@ -16,11 +16,20 @@ elif _py_major == 3 and _py_minor == 2:
 else:
     setup_reqs.append('sphinx')
 
+
+
+tests_reqs = []
+if _py_major == 2 and _py_minor == 6:
+    tests_reqs.append('pytest=3.2.5')
+else:
+    tests_reqs.append('pytest')
+tests_reqs.append('pytest-cov')
+
 setup(
     name = "Streams",
     version = "0.1",
     setup_requires=setup_reqs,
-    tests_require=['pytest', 'pytest-cov'],
+    tests_require=tests_reqs,
     packages=['streams'],
     zip_safe=True
 )
