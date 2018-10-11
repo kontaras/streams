@@ -3,7 +3,12 @@ import sys
 
 _py_major, _py_minor, _py_release, _py_level, _py_serial = sys.version_info
 
-setup_reqs = ['pytest-runner']
+setup_reqs = []
+if _py_major == 2 and _py_minor == 6:
+    setup_reqs.append('pytest-runner==3.0')
+else:
+    setup_reqs.append('pytest-runner')
+
 if (_py_major == 2 and _py_minor == 6) or (_py_major == 3 and _py_minor == 3):
     setup_reqs.append('sphinx==1.4.9')
 elif _py_major == 3 and _py_minor == 2:
