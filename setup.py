@@ -5,7 +5,7 @@ _py_major, _py_minor, _py_release, _py_level, _py_serial = sys.version_info
 
 setup_reqs = []
 if _py_major == 2 and _py_minor == 6:
-    setup_reqs.append('pytest-runner==3.0')
+    setup_reqs.append('pytest-runner==2.12.2')
 else:
     setup_reqs.append('pytest-runner')
 
