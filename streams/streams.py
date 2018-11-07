@@ -81,7 +81,12 @@ class Stream(object):
 
     def flatten(self):
         """
-            **TODO**
+            Turns an iterator of iterators into an iterator that returns the
+            output of each iterator after the other.
+            ::
+
+                wrap([[1, 2, 3], ['a', 'b', 'c']]).flatten()
+                    #[1, 2, 3, 'a', 'b', 'c']
         """
         return wrap(itertools.chain.from_iterable(self._itr))
 

@@ -15,6 +15,13 @@ def test_basic():
     utils.checkFinite([1, 2, 3], stream.flatten())
 
 
+def test_recursive():
+    sample_list = [streams.wrap([1, 2]), streams.wrap([3])]
+    stream = streams.wrap(iter(sample_list))
+
+    utils.checkFinite([1, 2, 3], stream.flatten())
+
+
 def test_infinite():
     stream = streams.wrap(utils.infinte(['a']))
     utils.testInfinite(utils.infinte(), stream.flatten())
