@@ -87,6 +87,10 @@ class Stream(object):
 
                 wrap([[1, 2, 3], ['a', 'b', 'c']]).flatten()
                     #[1, 2, 3, 'a', 'b', 'c']
+
+            :return: A stream that returns all of the values in the nested
+                streams
+            :rtype: :class:`Stream`
         """
         return wrap(itertools.chain.from_iterable(self._itr))
 
