@@ -37,3 +37,10 @@ def test_zero():
     stream = streams.wrap(iter(sample_list))
 
     utils.testEmpty(stream.limit(0))
+
+
+def test_lazy():
+    size = 4
+    stream = streams.wrap(utils.lazy_bomb(size)).limit(5)
+    for i in range(size):
+        next(stream)

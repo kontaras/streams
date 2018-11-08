@@ -42,3 +42,11 @@ def testWrapped(stream):
 def infinte(value='a'):
     while True:
         yield value
+
+
+def lazy_bomb(limit):
+    i = 0
+    while i < limit:
+        i += 1
+        yield
+    raise Exception("Function is not lazy")
