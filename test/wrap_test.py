@@ -25,3 +25,10 @@ def test_empty():
     stream = streams.wrap(iter([]))
 
     utils.testEmpty(stream)
+
+
+def test_lazy():
+    size = 4
+    stream = streams.wrap(utils.lazy_bomb(size))
+    for i in range(size):
+        next(stream)
