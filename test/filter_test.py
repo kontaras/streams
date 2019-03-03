@@ -35,6 +35,7 @@ def test_empty():
 
     utils.testEmpty(stream.filter(lambda x: x % 2 == 1))
 
+
 def test_lazy():
     size = 4
     stream = streams.wrap(utils.lazy_bomb(size)).filter(lambda x: True)
