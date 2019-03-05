@@ -26,7 +26,11 @@ if _py_major == 2 and _py_minor == 6:
     tests_reqs.append('pytest=3.2.5')
 else:
     tests_reqs.append('pytest')
-tests_reqs.append('pytest-cov')
+
+if _py_major == 3 and _py_minor == 4:
+    tests_reqs.append('pytest-cov=2.5.1')
+else:
+    tests_reqs.append('pytest-cov')
 
 setup(
     name = "Streams",
