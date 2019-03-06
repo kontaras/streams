@@ -4,8 +4,15 @@ import sys
 _py_major, _py_minor, _py_release, _py_level, _py_serial = sys.version_info
 
 setup_reqs = []
+tests_reqs = []
+
 if _py_major == 2 and _py_minor == 6:
-    setup_reqs.append('pytest-runner==2.12.2')
+    setup_reqs.append('pytest=3.2.5')
+else:
+    setup_reqs.append('pytest')
+
+if _py_major == 2 and _py_minor == 6:
+    setup_reqs.append('pytest-runner==2.5.1')
 else:
     setup_reqs.append('pytest-runner')
 
@@ -18,14 +25,6 @@ elif (_py_major == 2 and _py_minor == 7) or (_py_major == 3 and _py_minor == 4):
     setup_reqs.append('sphinx==1.8.4')
 else:
     setup_reqs.append('sphinx')
-
-
-
-tests_reqs = []
-if _py_major == 2 and _py_minor == 6:
-    tests_reqs.append('pytest=3.2.5')
-else:
-    tests_reqs.append('pytest')
 
 if _py_major == 3 and _py_minor == 4:
     tests_reqs.append('pytest-cov==2.5.1')
