@@ -6,6 +6,9 @@ _py_major, _py_minor, _py_release, _py_level, _py_serial = sys.version_info
 setup_reqs = []
 tests_reqs = []
 
+print("Python version")
+print(_py_major, _py_minor, _py_release, _py_level, _py_serial)
+
 if _py_major == 2 and _py_minor == 6:
     setup_reqs.append('pytest=3.2.5')
 else:
