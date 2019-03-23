@@ -9,10 +9,10 @@ import utils
 
 
 def test_basic():
-    sample_list = [[1, 2], [3]]
+    sample_list = [[1, 2], [3, 4]]
     stream = streams.wrap(iter(sample_list))
 
-    utils.checkFinite([1, 2, 3], stream.flatten())
+    utils.checkFinite([1, 2, 3, 4], stream.flatten())
 
 
 def test_recursive():
@@ -34,3 +34,10 @@ def test_empty():
     stream = streams.wrap(iter([]))
 
     utils.testEmpty(stream.flatten())
+
+
+def test_lazy():
+    size = 4
+    stream = streams.wrap(utils.lazy_bomb(size/2, [1, 2])).flatten()
+    for i in range(size):
+        next(stream)

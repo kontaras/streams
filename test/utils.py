@@ -44,9 +44,9 @@ def infinte(value='a'):
         yield value
 
 
-def lazy_bomb(limit):
+def lazy_bomb(limit, item=None):
     i = 0
     while i < limit:
         i += 1
-        yield
+        yield item
     raise Exception("Function is not lazy")
