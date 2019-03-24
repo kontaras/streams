@@ -69,3 +69,10 @@ def test_empty():
 
     utils.testEmpty(stream.zip(finite))
     utils.testEmpty(finite.zip(stream))
+
+
+def test_lazy():
+    size = 4
+    stream = streams.wrap(utils.lazy_bomb(size)).zip(utils.lazy_bomb(size))
+    for i in range(size):
+        next(stream)
