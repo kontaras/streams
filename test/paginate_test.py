@@ -44,3 +44,13 @@ def test_exact_page():
     assert layers == 2
 
     utils.testEmpty(stream)
+
+
+def test_lazy():
+    size = 8
+    pageSize = 4
+    stream = streams.wrap(utils.lazy_bomb(size)).paginate(pageSize)
+    for i in range(int(size/pageSize)):
+        page = next(stream)
+        for i in range(pageSize):
+            next(page)
