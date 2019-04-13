@@ -133,6 +133,12 @@ class Stream(object):
         else:
             return wrap(zip(self._itr, *other))
 
+    def peek(self, func):
+        def stuff(x):
+            func(x)
+            return x
+        return self.map(stuff)
+
 
 def wrap(itr):
     """
