@@ -14,12 +14,12 @@ if _py_major == 2 and _py_minor == 6:
 elif (_py_major == 2 and _py_minor == 7) or (_py_major == 3 and _py_minor == 4):
     setup_reqs.append('pytest<=4.2.1')
 else:
-    setup_reqs.append('pytest>=3.6') #needed for pytest-cov
+    setup_reqs.append('pytest==3.1.3') #needed for pytest-cov
 
 if _py_major == 2 and _py_minor == 6:
     setup_reqs.append('pytest-runner==2.2')
 else:
-    setup_reqs.append('pytest-runner')
+    setup_reqs.append('pytest-runner==4.2')
 
 
 if _py_major == 3 and _py_minor == 2:
@@ -34,7 +34,7 @@ else:
 if _py_major == 3 and _py_minor == 4:
     tests_reqs.append('pytest-cov==2.5.1')
 else:
-    tests_reqs.append('pytest-cov')
+    tests_reqs.append('pytest-cov==2.6')
 
 setup(
     name = "Streams",
