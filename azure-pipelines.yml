@@ -37,3 +37,6 @@ steps:
     python setup.py test build_sphinx sdist bdist
     pycodestyle streams test
   displayName: 'pytest'
+- script: |
+    codecov
+  displayName: 'codecov upload'
