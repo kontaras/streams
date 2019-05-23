@@ -38,5 +38,6 @@ steps:
     pycodestyle streams test
   displayName: 'pytest'
 - script: |
-    codecov
+    #codecov
+    echo "Codecov not working under azure"
   displayName: 'codecov upload'
