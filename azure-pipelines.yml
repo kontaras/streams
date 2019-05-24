@@ -20,6 +20,10 @@ strategy:
       python.version: '3.6'
     Python37:
       python.version: '3.7'
+    PyPy2:
+      python.version: 'PyPy2'
+    PyPy3:
+      python.version: 'PyPy3'
 
 steps:
 - task: UsePythonVersion@0
