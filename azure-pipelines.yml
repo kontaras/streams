@@ -22,8 +22,9 @@ strategy:
       python.version: '3.6'
     Python37:
       python.version: '3.7'
-    Python38:
-      python.version: '3.8'
+    #Docs say that 3.8 is supported, it is not
+    #Python38:
+    #  python.version: '3.8'
     PyPy2:
       python.version: 'PyPy2'
     PyPy3:
@@ -49,5 +50,5 @@ steps:
   displayName: 'pytest'
 - script: |
     #codecov
-    echo "Codecov not working under azure"
+    echo Codecov not working under azure
   displayName: 'codecov upload'
