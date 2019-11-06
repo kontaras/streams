@@ -9,7 +9,7 @@ trigger:
     - '*'
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-2019'
 strategy:
   matrix:
     Python27:
