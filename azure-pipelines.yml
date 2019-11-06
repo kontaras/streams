@@ -43,8 +43,8 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    #pip install pytest pytest-azurepipelines
-    #pytest
+    pip install pytest
+    pytest
     python setup.py test build_sphinx sdist bdist
     pycodestyle streams test
   displayName: 'pytest'
