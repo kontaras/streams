@@ -43,8 +43,12 @@ steps:
     #pip install pytest pytest-azurepipelines
     #pytest
     python setup.py test build_sphinx sdist bdist
-    pycodestyle streams test
   displayName: 'pytest'
+
+- script: |
+    pycodestyle streams test
+  displayName: "pycodestyle"
+
 - script: |
     #codecov
     echo "Codecov not working under azure"
