@@ -12,18 +12,18 @@ pool:
   vmImage: 'ubuntu-latest'
 strategy:
   matrix:
-    Python27:
-      python.version: '2.7'
-    Python34:
-      python.version: '3.4'
+    #Python27:
+    #  python.version: '2.7'
+    #Python34:
+    #  python.version: '3.4'
     Python35:
       python.version: '3.5'
     Python36:
       python.version: '3.6'
     Python37:
       python.version: '3.7'
-    PyPy2:
-      python.version: 'PyPy2'
+    #PyPy2:
+    #  python.version: 'PyPy2'
     PyPy3:
       python.version: 'PyPy3'
 
@@ -43,8 +43,12 @@ steps:
     #pip install pytest pytest-azurepipelines
     #pytest
     python setup.py test build_sphinx sdist bdist
-    pycodestyle streams test
   displayName: 'pytest'
+
+- script: |
+    pycodestyle streams test
+  displayName: "pycodestyle"
+
 - script: |
     #codecov
     echo "Codecov not working under azure"
