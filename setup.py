@@ -21,6 +21,9 @@ if _py_major == 2 and _py_minor == 6:
 else:
     setup_reqs.append('pytest-runner==4.2')
 
+if _py_major == 2:
+    setup_reqs.append('attrs==19.1.0')
+
 
 if _py_major == 3 and _py_minor == 2:
     setup_reqs.append('sphinx==1.2.3')
