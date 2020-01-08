@@ -20,7 +20,6 @@ strategy:
       python.version: '3.6'
     Python37:
       python.version: '3.7'
-    #Docs say that 3.8 is supported, it is not
     Python38:
       python.version: '3.8'
     PyPy2:
