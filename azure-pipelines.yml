@@ -14,8 +14,8 @@ strategy:
   matrix:
     Python27:
       python.version: '2.7'
-    #Python34:
-    #  python.version: '3.4'
+    Python34:
+      python.version: '3.4'
     Python35:
       python.version: '3.5'
     Python36:
@@ -25,8 +25,8 @@ strategy:
     #Docs say that 3.8 is supported, it is not
     #Python38:
     #  python.version: '3.8'
-    #PyPy2:
-    #  python.version: 'PyPy2'
+    PyPy2:
+      python.version: 'PyPy2'
     PyPy3:
       python.version: 'PyPy3'
 
