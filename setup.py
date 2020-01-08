@@ -11,8 +11,6 @@ print(_py_major, _py_minor, _py_release, _py_level, _py_serial)
 
 if _py_major == 2 and _py_minor == 6:
     setup_reqs.append('pytest==3.2.5')
-elif (_py_major == 2 and _py_minor == 7) or (_py_major == 3 and _py_minor == 4):
-    setup_reqs.append('pytest<=4.2.1')
 else:
     setup_reqs.append('pytest==3.1.3') #needed for pytest-cov
 
@@ -20,6 +18,9 @@ if _py_major == 2 and _py_minor == 6:
     setup_reqs.append('pytest-runner==2.2')
 else:
     setup_reqs.append('pytest-runner==4.2')
+
+if _py_major == 2:
+    setup_reqs.append('attrs==19.1.0')
 
 
 if _py_major == 3 and _py_minor == 2:
