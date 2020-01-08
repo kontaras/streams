@@ -127,13 +127,21 @@ class Stream(object):
             :return: The combined stream
             :rtype: :class:`Stream` of tuples
         """
-        # should be  in 2.X
         if _py_major < 3:
             return wrap(itertools.izip(self._itr, *other))
         else:
             return wrap(zip(self._itr, *other))
 
     def peek(self, func):
+        """
+            Call a given function for every item the stream produces.
+            This function is lazy, so ``func`` is only called when the stream
+            has its elements accessed.
+        :param func: The function to call for each element
+        :type func: callable
+        :return: A stream that produces the same elements as this one.
+        :rtype: :class:`Stream`
+        """
         def stuff(x):
             func(x)
             return x
