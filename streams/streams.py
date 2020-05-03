@@ -6,13 +6,16 @@ _py_major, _py_minor, _py_release, _py_level, _py_serial = sys.version_info
 
 class Stream(object):
     '''
-    classdocs
-    **TODO**
+        The methods for a stream. All of them return a :class:`Stream`, so they
+        can be chained.
+
+        Do not maually create instances, instead use :func:`wrap`.
     '''
 
     def __init__(self, itr):
         '''
-        Constructor
+            :param itr: The iterator to wrap
+            :type itf: iterable
         '''
         self._itr = iter(itr)
 
@@ -137,10 +140,10 @@ class Stream(object):
             Call a given function for every item the stream produces.
             This function is lazy, so ``func`` is only called when the stream
             has its elements accessed.
-        :param func: The function to call for each element
-        :type func: callable
-        :return: A stream that produces the same elements as this one.
-        :rtype: :class:`Stream`
+            :param func: The function to call for each element
+            :type func: callable
+            :return: A stream that produces the same elements as this one.
+            :rtype: :class:`Stream`
         """
         def stuff(x):
             func(x)
