@@ -17,7 +17,7 @@ else:
 if _py_major == 2 and _py_minor == 6:
     setup_reqs.append('pytest-runner==2.2')
 else:
-    setup_reqs.append('pytest-runner==4.2')
+    setup_reqs.append('pytest-runner==5.2')
 
 if _py_major == 2:
     setup_reqs.append('attrs==19.1.0')
