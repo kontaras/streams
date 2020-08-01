@@ -12,7 +12,7 @@ print(_py_major, _py_minor, _py_release, _py_level, _py_serial)
 if _py_major == 2 and _py_minor == 6:
     setup_reqs.append('pytest==3.2.5')
 else:
-    setup_reqs.append('pytest==3.1.3') #needed for pytest-cov
+    setup_reqs.append('pytest==6.0.1') #needed for pytest-cov
 
 if _py_major == 2 and _py_minor == 6:
     setup_reqs.append('pytest-runner==2.2')
