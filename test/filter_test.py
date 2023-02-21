@@ -1,9 +1,3 @@
-'''
-Created on Dec 5, 2016
-
-@author: knaryshkin
-'''
-
 from streams import streams
 import utils
 import itertools

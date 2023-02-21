@@ -118,7 +118,7 @@ class Stream(object):
             stream of tuples with a value from each stream, in order.
             ::
 
-              wrap(['a', 'b', 'c']).zip([1,2,3]) #[('a', 1),('b', 2),('c', 3)]
+                wrap(['a','b','c']).zip([1,2,3]) #[('a', 1),('b', 2),('c', 3)]
 
             .. warning:: This method is a bit eager. It prematurely consumes
                 some of the elements from the iterator
@@ -126,7 +126,7 @@ class Stream(object):
             :param other: One or more Iterator objects to zip with
             :type other: iterable
             :return: The combined stream
-            :rtype: :class:`Stream` of tuples
+            :rtype: :class:`Stream`
         """
         if _py_major < 3:
             return wrap(itertools.izip(self._itr, *other))
@@ -138,10 +138,10 @@ class Stream(object):
             Call a given function for every item the stream produces.
             This function is lazy, so ``func`` is only called when the stream
             has its elements accessed.
-        :param func: The function to call for each element
-        :type func: callable
-        :return: A stream that produces the same elements as this one.
-        :rtype: :class:`Stream`
+            :param func: The function to call for each element
+            :type func: callable
+            :return: A stream that produces the same elements as this one.
+            :rtype: :class:`Stream`
         """
 
         def stuff(x):
@@ -151,6 +151,17 @@ class Stream(object):
         return self.map(stuff)
 
     def chain(self, *others):
+        """
+            Return the elements of other iterators after this one is exhausted.
+            ::
+                wrap([1, 2, 3]).chain([4, 5], [6, 7]) #[1, 2, 3, 4, 5, 6, 7]
+
+            :param others: Other iterables to take elements from
+            :type others: list[iterator]
+            :return: A stream that returns the elements of one iterator after
+             another
+            :rtype: :class:`Stream`
+        """
         return wrap(itertools.chain(self, *others))
 
 

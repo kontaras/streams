@@ -1,9 +1,3 @@
-'''
-Created on Jul 12, 2017
-
-@author: knaryshkin
-'''
-
 from streams import streams
 import utils
 
@@ -17,11 +11,11 @@ def test_empty():
 def test_simple():
     stream = streams.wrap(iter([0, 1, 2])).paginate(2)
     layers = 0
-    for l in stream:
-        utils.test_wrapped(l)
+    for layer in stream:
+        utils.test_wrapped(layer)
         values = 0
-        for v in l:
-            assert v == values + (2 * layers)
+        for value in layer:
+            assert value == values + (2 * layers)
             values += 1
         assert values == 2 - layers
         layers += 1
@@ -33,11 +27,11 @@ def test_simple():
 def test_exact_page():
     stream = streams.wrap(iter([0, 1, 2, 3])).paginate(2)
     layers = 0
-    for l in stream:
-        utils.test_wrapped(l)
+    for layer in stream:
+        utils.test_wrapped(layer)
         values = 0
-        for v in l:
-            assert v == values + (2 * layers)
+        for value in layer:
+            assert value == values + (2 * layers)
             values += 1
         assert values == 2
         layers += 1
@@ -48,9 +42,9 @@ def test_exact_page():
 
 def test_lazy():
     size = 8
-    pageSize = 4
-    stream = streams.wrap(utils.lazy_bomb(size)).paginate(pageSize)
-    for i in range(int(size/pageSize)):
+    page_size = 4
+    stream = streams.wrap(utils.lazy_bomb(size)).paginate(page_size)
+    for _ in range(int(size/page_size)):
         page = next(stream)
-        for i in range(pageSize):
+        for _ in range(page_size):
             next(page)

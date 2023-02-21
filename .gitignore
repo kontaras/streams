@@ -4,3 +4,5 @@
 /.eggs/
 /htmlcov/
 *.pyc
+/test/htmlcov/
+/test/.coverage
