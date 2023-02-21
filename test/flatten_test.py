@@ -12,28 +12,28 @@ def test_basic():
     sample_list = [[1, 2], [3, 4]]
     stream = streams.wrap(iter(sample_list))
 
-    utils.checkFinite([1, 2, 3, 4], stream.flatten())
+    utils.check_finite([1, 2, 3, 4], stream.flatten())
 
 
 def test_recursive():
     sample_list = [streams.wrap([1, 2]), streams.wrap([3])]
     stream = streams.wrap(iter(sample_list))
 
-    utils.checkFinite([1, 2, 3], stream.flatten())
+    utils.check_finite([1, 2, 3], stream.flatten())
 
 
 def test_infinite():
-    stream = streams.wrap(utils.infinte(['a']))
-    utils.testInfinite(utils.infinte(), stream.flatten())
+    stream = streams.wrap(utils.infinite(['a']))
+    utils.test_infinite(utils.infinite(), stream.flatten())
 
-    stream = streams.wrap([utils.infinte(), utils.infinte()])
-    utils.testInfinite(utils.infinte(), stream.flatten())
+    stream = streams.wrap([utils.infinite(), utils.infinite()])
+    utils.test_infinite(utils.infinite(), stream.flatten())
 
 
 def test_empty():
     stream = streams.wrap(iter([]))
 
-    utils.testEmpty(stream.flatten())
+    utils.test_empty(stream.flatten())
 
 
 def test_lazy():

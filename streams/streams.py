@@ -5,15 +5,15 @@ _py_major, _py_minor, _py_release, _py_level, _py_serial = sys.version_info
 
 
 class Stream(object):
-    '''
+    """
     classdocs
     **TODO**
-    '''
+    """
 
     def __init__(self, itr):
-        '''
+        """
         Constructor
-        '''
+        """
         self._itr = iter(itr)
 
     def __iter__(self):
@@ -94,16 +94,17 @@ class Stream(object):
         """
         return wrap(itertools.chain.from_iterable(self._itr))
 
-    def paginate(self, pageSize):
+    def paginate(self, page_size):
         """
             **TODO**
         """
+
         # Based on https://stackoverflow.com/a/46107096/686041
         def pager():
             page = []
             for i in self._itr:
                 page.append(i)
-                if len(page) == pageSize:
+                if len(page) == page_size:
                     yield wrap(page)
                     page = []
             if page:
@@ -142,10 +143,15 @@ class Stream(object):
         :return: A stream that produces the same elements as this one.
         :rtype: :class:`Stream`
         """
+
         def stuff(x):
             func(x)
             return x
+
         return self.map(stuff)
+
+    def chain(self, *others):
+        return wrap(itertools.chain(self, *others))
 
 
 def wrap(itr):

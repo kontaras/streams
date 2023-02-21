@@ -13,7 +13,7 @@ def test_basic():
     sample_list = [1, 2, 3]
     stream = streams.wrap(iter(sample_list))
 
-    utils.checkFinite([1, 3], stream.filter(lambda x: x % 2 == 1))
+    utils.check_finite([1, 3], stream.filter(lambda x: x % 2 == 1))
 
 
 def test_infinite():
@@ -27,13 +27,13 @@ def test_infinite():
     else:
         count = itertools.count
 
-    utils.testInfinite(count(1, 2), stream.filter(lambda x: x % 2 == 1))
+    utils.test_infinite(count(1, 2), stream.filter(lambda x: x % 2 == 1))
 
 
 def test_empty():
     stream = streams.wrap(iter([]))
 
-    utils.testEmpty(stream.filter(lambda x: x % 2 == 1))
+    utils.test_empty(stream.filter(lambda x: x % 2 == 1))
 
 
 def test_lazy():

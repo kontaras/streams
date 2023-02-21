@@ -10,7 +10,7 @@ import utils
 
 def test_basic():
     stream = streams.wrap(iter([0, 1, 2]))
-    utils.checkFinite(['0', '1', '2'], stream.map(str))
+    utils.check_finite(['0', '1', '2'], stream.map(str))
 
 
 def test_infinite():
@@ -27,13 +27,13 @@ def test_infinite():
             i += 1
 
     stream = streams.wrap(infinte())
-    utils.testInfinite(infinte_str(), stream.map(str))
+    utils.test_infinite(infinte_str(), stream.map(str))
 
 
 def test_empty():
     stream = streams.wrap(iter([]))
 
-    utils.testEmpty(stream.map(str))
+    utils.test_empty(stream.map(str))
 
 
 def test_lazy():

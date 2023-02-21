@@ -12,19 +12,19 @@ def test_basic():
     sample_list = [1, 2, 3]
     stream = streams.wrap(iter(sample_list))
 
-    utils.checkFinite(sample_list, stream)
+    utils.check_finite(sample_list, stream)
 
 
 def test_infinite():
-    stream = streams.wrap(utils.infinte())
+    stream = streams.wrap(utils.infinite())
 
-    utils.testInfinite(utils.infinte(), stream)
+    utils.test_infinite(utils.infinite(), stream)
 
 
 def test_empty():
     stream = streams.wrap(iter([]))
 
-    utils.testEmpty(stream)
+    utils.test_empty(stream)
 
 
 def test_lazy():
