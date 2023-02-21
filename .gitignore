@@ -1,0 +1,6 @@
+/.coverage
+.idea/
+/Streams.egg-info/
+/.eggs/
+/htmlcov/
+*.pyc
